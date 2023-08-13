@@ -1,0 +1,35 @@
+@model ContactViewModel
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<h1>Contato</h1>
+
+@if(ViewData["Message"] != null){
+    <div class="alert alert-danger" role="alert">
+    @ViewData["Message"]
+    </div>
+}
+
+<form method="post" asp-action="SendContact" autocomplete="off">
+    <div class="form-group mb-2">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" type="text"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" type="email"/>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="Message"></label>
+        <textarea class="form-control" asp-for="Message"></textarea>
+        <span asp-validation-for="Message" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Enviar">
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
