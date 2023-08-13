@@ -31,10 +31,10 @@ public class HomeController : Controller
         {
             Subject = "Contato de " + model.Name,
 
-            From = new MailAddress("devmoitinho3165@gmail.com")
+            From = new MailAddress("--")
         };
         
-        emailMessage.To.Add("guilhermemoitinho3165@gmail.com");
+        emailMessage.To.Add("--");
         emailMessage.IsBodyHtml = true;
 
         emailMessage.Body = "<p>Nome: "+model.Name + "</p> <br> <p>E-mail: "+ model.Email + "</p>" + 
@@ -43,7 +43,7 @@ public class HomeController : Controller
 
         var client = new SmtpClient("smtp.gmail.com", 465)
         {
-            Credentials = new NetworkCredential("devmoitinho3165@gmail.com", "Gui061984@Gui"),
+            Credentials = new NetworkCredential("--", "--"),
             EnableSsl = true
         };
 
